@@ -1,0 +1,10 @@
+{
+  "name": "Your Name",
+  "resume_url": "https://example.com/yourname.pdf",
+  "links": [
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/yourhandle/" },
+    { "label": "GitHub",   "url": "https://github.com/yourhandle" },
+    { "label": "Portfolio","url": "https://yourdomain.com" }
+  ],
+  "updated": "2025-11-26"
+}
