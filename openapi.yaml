@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info:
+  title: My Public Links API
+  version: 1.0.0
+paths:
+  /links.json:
+    get:
+      summary: Get my resume and links
+      responses:
+        "200":
+          description: JSON with resume and links
+          content:
+            application/json:
+              schema:
+                type: object
