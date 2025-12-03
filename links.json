@@ -12,11 +12,16 @@
       "url": "https://github.com/Keerti-tsp"
     },
     {
-      "label": "Lyricist - Portfolio",
-      "suno ai": "https://suno.com/@myverse",
-      "youtube": "https://www.youtube.com/channel/UC798W_ODUUahXNyYmO72NGw",
-      "soundcloud": "https://soundcloud.com/keerti-shiva",
-      "spotify": "https://open.spotify.com/artist/7fodBeP4FBjxxJGUVwWI1X"
+      "label": "YouTube - Music Channel",
+      "url": "https://www.youtube.com/channel/UC798W_ODUUahXNyYmO72NGw"
+    },
+    {
+      "label": "SoundCloud",
+      "url": "https://soundcloud.com/keerti-shiva"
+    },
+    {
+      "label": "Spotify - Artist Profile",
+      "url": "https://open.spotify.com/artist/7fodBeP4FBjxxJGUVwWI1X"
     }
   ],
   "projects": [

@@ -227,7 +227,7 @@
     <div class="profile-section">
       <div class="avatar" id="avatar"></div>
       <h1 id="name">Your Name</h1>
-      <p class="tagline">Developer | Designer | Creator</p>
+      <p class="tagline" id="tagline">Developer | Designer | Creator</p>
       <a href="#" class="resume-button" id="resumeBtn">📄 Download Resume</a>
     </div>
 
@@ -240,18 +240,7 @@
     <!-- Projects Section -->
     <div class="projects-section">
       <h2 class="section-title">Featured Projects</h2>
-      <div class="project-card">
-        <h3 class="project-title">Project Name 1</h3>
-        <p class="project-description">A brief description of your amazing project. What problem does it solve? What
-          technologies did you use?</p>
-        <a href="#" class="project-link">View Project →</a>
-      </div>
-      <div class="project-card">
-        <h3 class="project-title">Project Name 2</h3>
-        <p class="project-description">Another cool project you've worked on. Highlight the key features and your role
-          in the project.</p>
-        <a href="#" class="project-link">View Project →</a>
-      </div>
+      <div id="projectsContainer"></div>
     </div>
 
     <!-- Footer -->
@@ -261,71 +250,108 @@
   </div>
 
   <script>
-    // Fetch and populate data from links.json
-    fetch('links.json')
-      .then(response => response.json())
-      .then(data => {
-        // Update name
-        document.getElementById('name').textContent = data.name;
-
-        // Update avatar with first letter of name
-        const firstLetter = data.name.charAt(0).toUpperCase();
-        document.getElementById('avatar').textContent = firstLetter;
-
-        // Update tagline if available
-        if (data.tagline) {
-          document.querySelector('.tagline').textContent = data.tagline;
+    // Embedded data for local file viewing (no fetch needed)
+    const data = {
+      "name": "Keerti Tunuguntla",
+      "tagline": "Product Manager |Developer | Designer | Creator | Lyricist | Yoga - 200 Hr certified teacher",
+      "resume_url": "./Keerti Tunuguntla_01.pdf",
+      "links": [
+        {
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/in/keerti-product-strategy/"
+        },
+        {
+          "label": "GitHub - portfolio",
+          "url": "https://github.com/Keerti-tsp"
+        },
+        {
+          "label": "Suno AI - Music",
+          "url": "https://suno.com/@myverse"
+        },
+        {
+          "label": "YouTube - Music Channel",
+          "url": "https://www.youtube.com/channel/UC798W_ODUUahXNyYmO72NGw"
+        },
+        {
+          "label": "SoundCloud",
+          "url": "https://soundcloud.com/keerti-shiva"
+        },
+        {
+          "label": "Spotify - Artist Profile",
+          "url": "https://open.spotify.com/artist/7fodBeP4FBjxxJGUVwWI1X"
         }
-
-        // Update resume button
-        const resumeBtn = document.getElementById('resumeBtn');
-        resumeBtn.href = data.resume_url;
-
-        // Update links
-        const linksContainer = document.getElementById('linksContainer');
-        linksContainer.innerHTML = '';
-        data.links.forEach(link => {
-          const linkCard = document.createElement('a');
-          linkCard.className = 'link-card';
-          linkCard.href = link.url;
-          linkCard.target = '_blank';
-          linkCard.rel = 'noopener noreferrer';
-          linkCard.innerHTML = `
-                        <span class="link-label">${link.label}</span>
-                        <span class="link-arrow">→</span>
-                    `;
-          linksContainer.appendChild(linkCard);
-        });
-
-        // Update projects if available
-        if (data.projects && data.projects.length > 0) {
-          const projectsSection = document.querySelector('.projects-section');
-
-          // Clear existing project cards
-          const existingCards = projectsSection.querySelectorAll('.project-card');
-          existingCards.forEach(card => card.remove());
-
-          // Add new project cards
-          data.projects.forEach(project => {
-            const projectCard = document.createElement('div');
-            projectCard.className = 'project-card';
-            projectCard.innerHTML = `
-              <h3 class="project-title">${project.title}</h3>
-              <p class="project-description">${project.description}</p>
-              <a href="${project.url}" class="project-link" target="_blank" rel="noopener noreferrer">View Project →</a>
-            `;
-            projectsSection.appendChild(projectCard);
-          });
+      ],
+      "projects": [
+        {
+          "title": "Project Name 1",
+          "description": "A brief description of your amazing project. What problem does it solve? What technologies did you use?",
+          "url": "https://github.com/yourhandle/project1"
+        },
+        {
+          "title": "Project Name 2",
+          "description": "Another cool project you've worked on. Highlight the key features and your role in the project.",
+          "url": "https://github.com/yourhandle/project2"
         }
+      ],
+      "updated": "2025-12-03"
+    };
 
-        // Update last updated date
-        if (data.updated) {
-          document.getElementById('lastUpdated').textContent = data.updated;
-        }
-      })
-      .catch(error => {
-        console.error('Error loading links:', error);
+    // Populate the page with data
+    function loadData() {
+      // Update name
+      document.getElementById('name').textContent = data.name;
+
+      // Update avatar with first letter of name
+      const firstLetter = data.name.charAt(0).toUpperCase();
+      document.getElementById('avatar').textContent = firstLetter;
+
+      // Update tagline
+      document.getElementById('tagline').textContent = data.tagline;
+
+      // Update resume button
+      const resumeBtn = document.getElementById('resumeBtn');
+      resumeBtn.href = data.resume_url;
+
+      // Update links
+      const linksContainer = document.getElementById('linksContainer');
+      linksContainer.innerHTML = '';
+      data.links.forEach(link => {
+        const linkCard = document.createElement('a');
+        linkCard.className = 'link-card';
+        linkCard.href = link.url;
+        linkCard.target = '_blank';
+        linkCard.rel = 'noopener noreferrer';
+        linkCard.innerHTML = `
+          <span class="link-label">${link.label}</span>
+          <span class="link-arrow">→</span>
+        `;
+        linksContainer.appendChild(linkCard);
       });
+
+      // Update projects
+      const projectsContainer = document.getElementById('projectsContainer');
+      projectsContainer.innerHTML = '';
+      data.projects.forEach(project => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card';
+        projectCard.innerHTML = `
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-description">${project.description}</p>
+          <a href="${project.url}" class="project-link" target="_blank" rel="noopener noreferrer">View Project →</a>
+        `;
+        projectsContainer.appendChild(projectCard);
+      });
+
+      // Update last updated date
+      document.getElementById('lastUpdated').textContent = data.updated;
+    }
+
+    // Load data when page is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadData);
+    } else {
+      loadData();
+    }
   </script>
 </body>
 
