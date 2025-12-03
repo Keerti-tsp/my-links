@@ -1,10 +1,35 @@
 {
-  "name": "Your Name",
-  "resume_url": "https://example.com/yourname.pdf",
+  "name": "Keerti Tunuguntla",
+  "tagline": "Product Manager |Developer | Designer | Creator | Lyricist | Yoga - 200 Hr certified teacher",
+  "resume_url": "./Keerti Tunuguntla_01.pdf",
   "links": [
-    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/yourhandle/" },
-    { "label": "GitHub",   "url": "https://github.com/yourhandle" },
-    { "label": "Portfolio","url": "https://yourdomain.com" }
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/keerti-product-strategy/"
+    },
+    {
+      "label": "GitHub - portfolio",
+      "url": "https://github.com/Keerti-tsp"
+    },
+    {
+      "label": "Lyricist - Portfolio",
+      "suno ai": "https://suno.com/@myverse",
+      "youtube": "https://www.youtube.com/channel/UC798W_ODUUahXNyYmO72NGw",
+      "soundcloud": "https://soundcloud.com/keerti-shiva",
+      "spotify": "https://open.spotify.com/artist/7fodBeP4FBjxxJGUVwWI1X"
+    }
   ],
-  "updated": "2025-11-26"
+  "projects": [
+    {
+      "title": "Project Name 1",
+      "description": "A brief description of your amazing project. What problem does it solve? What technologies did you use?",
+      "url": "https://github.com/yourhandle/project1"
+    },
+    {
+      "title": "Project Name 2",
+      "description": "Another cool project you've worked on. Highlight the key features and your role in the project.",
+      "url": "https://github.com/yourhandle/project2"
+    }
+  ],
+  "updated": "2025-12-03"
 }
